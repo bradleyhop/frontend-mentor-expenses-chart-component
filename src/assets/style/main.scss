@@ -1,0 +1,38 @@
+/*
+ * TYPOGRAPHY
+ */
+html {
+  font-family: "DM Sans", sans-serif;
+}
+
+.headingXL {
+  font-size: 48px;
+}
+
+.headingL {
+  font-size: 32px;
+}
+
+.bodyBold {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.bodyRegular {
+  font-size: 18px;
+}
+
+.miniCaption {
+  font-size: 15px;
+}
+
+/*
+ * COLORS
+ */
+$white: #fff;
+$cardWhite: #fffbf6;
+$creamBG: #f8e9dd;
+$medBrown: #92857a;
+$darkBrown: #382314;
+$cyan: #76b5bc;
+$red: #ec755d;
