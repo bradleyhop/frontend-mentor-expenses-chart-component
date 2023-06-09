@@ -1,15 +1,23 @@
 <script>
+// for this project, loading local json
 import exp_json from '@/assets/data/data.json'
+// bar chart component
+import BarChart from './BarChart.vue'
 
 export default {
   name: 'ExpenseChart',
+
+  components: {
+    BarChart
+  },
+
   data() {
     return {
       expJSON: exp_json,
       // given as static data in project setup files
       balance: 921.48,
       monthlyTotalExpense: 478.33,
-      percentChange: "+2.4%"
+      percentChange: '+2.4%'
     }
   }
 }
@@ -29,10 +37,13 @@ export default {
 
     <div class="spending-container">
       <div class="headingL spending-title">Spending - Last 7 days</div>
+
       <div class="bar-chart-container">
-        <!--make into its own component?-->
+        <BarChart :expJSON="expJSON" />
       </div>
+
       <hr class="divider" />
+
       <div class="monthly-container">
         <div class="total-month-container">
           <div class="bodyRegular monthly-title">Total this month</div>
@@ -47,7 +58,7 @@ export default {
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .expense-chart {
   min-width: 540px;
 }
@@ -79,6 +90,11 @@ export default {
 
 .logo-img-container {
   padding-right: 39px;
+}
+
+.logo-img {
+  height: 48px;
+  width: 72px;
 }
 
 .spending-container {
