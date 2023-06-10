@@ -5,7 +5,7 @@ import exp_json from '@/assets/data/data.json'
 import BarChart from './BarChart.vue'
 
 export default {
-  name: 'ExpenseChart',
+  name: 'ExpenseReport',
 
   components: {
     BarChart

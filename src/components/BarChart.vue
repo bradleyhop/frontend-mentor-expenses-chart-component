@@ -28,20 +28,20 @@ export default {
         height: `${(expense.amount / maxExpense) * 150}px`
       }"
       :class="`${expense.amount === maxExpense ? 'max' : ''}`"
-    >
-      <span data-text="$money" class="bodyBold bar-tooltip"></span>
-    </div>
+      :exp-amount="`${'$'.concat(expense.amount)}`"
+    ></div>
   </div>
 
   <div class="bar-chart-container__legend">
-    <div v-for="days in expJSON" :key="days.id">
-      <p class="miniCaption day-title">{{ days.day }}</p>
+    <div v-for="week in expJSON" :key="week.id">
+      <p class="miniCaption day-title">{{ week.day }}</p>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 $bar-width-desktop: 50.36px;
+$transition-type: 0.2s ease;
 
 .bar-chart-container {
   min-height: 200px;
@@ -64,15 +64,20 @@ $bar-width-desktop: 50.36px;
 }
 
 .bar-chart-container__bar {
-  // for tooltip
+  // tooltip
   position: relative;
-  display: inline-block;
-  // end tooltip scaffold
+  //
+  background-color: $red;
   border-radius: 5px;
   width: $bar-width-desktop;
-  background-color: $red;
+  transition: background-color $transition-type;
 
-  // max expenditure value get different color
+  &:hover {
+    cursor: pointer;
+    background-color: #ff9b86;
+  }
+
+  // max expenditure value gets different color
   &.max {
     background-color: $cyan;
 
@@ -81,27 +86,25 @@ $bar-width-desktop: 50.36px;
     }
   }
 
-  &:hover {
-    cursor: pointer;
-    background-color: #ff9b86;
-  }
-
-  .bar-tooltip {
-    content: attr(data-text);
-    position: absolute;
-    top: -25%;
-    //transform: translateY(-50%);
-    width: 40px; // placeholder
-    padding: 8px;
+  // tooltip construction
+  &::before {
+    content: attr(exp-amount);
     color: $cardWhite;
     background-color: $darkBrown;
     border-radius: 5px;
-    visibility: hidden;
-    z-index: 1;
+    opacity: 0;
+    padding: 8px;
+    // positioning
+    position: absolute;
+    top: -2.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity $transition-type;
+  }
 
-    &:hover {
-      visibility: visible;
-    }
+  // show tooltip
+  &:hover::before {
+    opacity: 1;
   }
 }
 </style>

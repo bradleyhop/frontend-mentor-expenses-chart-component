@@ -1,11 +1,11 @@
 <script>
-import ExpenseChart from './components/ExpenseChart.vue'
+import ExpenseReport from './components/ExpenseReport.vue'
 
 export default {
   name: 'App',
 
   components: {
-    ExpenseChart
+    ExpenseReport
   }
 }
 </script>
@@ -13,7 +13,7 @@ export default {
 <template>
   <main>
     <div class="expChartContainer">
-      <ExpenseChart />
+      <ExpenseReport />
     </div>
   </main>
 
