@@ -32,7 +32,7 @@ export default {
         height: `${(expense.amount / maxExpense) * 150}px`
       }"
       :class="`${expense.amount === maxExpense ? 'max' : ''}`"
-      :exp-amount="`${'$'.concat(expense.amount)}`"
+      :data-exp-amount="`${'$'.concat(expense.amount)}`"
     ></div>
   </div>
 
@@ -49,7 +49,6 @@ $bar-width-desktop: 50.36px;
 $transition-type: 0.2s ease;
 
 .bar-chart-container {
-  min-height: 178px;
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
@@ -100,7 +99,7 @@ $transition-type: 0.2s ease;
 
   // tooltip construction; no sytling for mobile
   &::before {
-    content: attr(exp-amount);
+    content: attr(data-exp-amount);
     color: $cardWhite;
     background-color: $darkBrown;
     border-radius: 5px;
