@@ -32,7 +32,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub Repo](https://github.com/bradleyhop/frontend-mentor-expenses-chart-component)
-- Live Site URL: [Via GitHub Pages](https://your-live-site-url.com)
+- Live Site URL: [Via GitHub Pages](https://bradleyhop.github.io/frontend-mentor-expenses-chart-component/)
 
 ### Screenshot
 
