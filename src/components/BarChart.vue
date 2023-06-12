@@ -49,7 +49,7 @@ $bar-width-desktop: 50.36px;
 $transition-type: 0.2s ease;
 
 .bar-chart-container {
-  min-height: 200px;
+  min-height: 178px;
   display: flex;
   align-items: flex-end;
   justify-content: space-around;

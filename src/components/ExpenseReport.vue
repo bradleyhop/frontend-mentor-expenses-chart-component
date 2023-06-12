@@ -61,7 +61,7 @@ export default {
 <style lang="scss" scoped>
 // spin animation for logo
 @keyframes spin {
-  from{
+  from {
     transform: rotate(0deg);
   }
   to {
@@ -112,6 +112,7 @@ export default {
 
 .balance-number {
   color: $white;
+  font-weight: 700;
 }
 
 .logo-img-container {
@@ -153,6 +154,11 @@ export default {
 .spending-title {
   color: $darkBrown;
   font-weight: 700;
+  margin-bottom: 52px;
+
+  @include desktop-breakpoint {
+    margin-bottom: 66px;
+  }
 }
 
 hr.divider {
