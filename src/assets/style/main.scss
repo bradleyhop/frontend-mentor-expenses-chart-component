@@ -1,29 +1,62 @@
 /*
+ * RESPONSIVE MEDIA QUERIES MIXIN
+ */
+@mixin desktop-breakpoint {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+/*
  * TYPOGRAPHY
  */
 html {
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .headingXL {
-  font-size: 48px;
+  font-size: 30px;
+  line-height: 39.06px;
+
+  @include desktop-breakpoint {
+    font-size: 48px;
+    line-height: 62.5px;
+  }
 }
 
 .headingL {
-  font-size: 32px;
-}
+  font-size: 24px;
+  line-height: 31.25px;
 
-.bodyBold {
-  font-size: 18px;
-  font-weight: bold;
+  @include desktop-breakpoint {
+    font-size: 32px;
+    line-height: 41.66px;
+  }
 }
 
 .bodyRegular {
-  font-size: 18px;
+  font-size: 15px;
+  line-height: 19.53px;
+
+  @include desktop-breakpoint {
+    font-size: 18px;
+    line-height: 23.44px;
+  }
+}
+
+.bodyBold {
+  @extend .bodyRegular;
+  font-weight: bold;
 }
 
 .miniCaption {
-  font-size: 15px;
+  font-size: 12px;
+  line-height: 15.62px;
+
+  @include desktop-breakpoint {
+    font-size: 15px;
+    line-height: 19.53px;
+  }
 }
 
 /*

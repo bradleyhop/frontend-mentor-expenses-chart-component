@@ -20,6 +20,10 @@ export default {
 
 <template>
   <div id="barChartContainer" class="bar-chart-container">
+    <!--
+       - NB: height for charts is set here through style binding; same for all
+       - viewports: max-height 150px
+       -->
     <div
       v-for="expense in expJSON"
       :key="expense.id"
@@ -40,6 +44,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+$bar-width-mobile: 33px;
 $bar-width-desktop: 50.36px;
 $transition-type: 0.2s ease;
 
@@ -57,20 +62,27 @@ $transition-type: 0.2s ease;
 
 .day-title {
   color: $medBrown;
-  line-height: 19.53px;
-  padding-top: 8px;
-  width: $bar-width-desktop;
+  padding-top: 11px;
+  width: $bar-width-mobile;
   text-align: center;
+
+  @include desktop-breakpoint {
+    width: $bar-width-desktop;
+    padding-top: 8px;
+  }
 }
 
 .bar-chart-container__bar {
-  // tooltip
-  position: relative;
-  //
+  position: relative; // needed for tooltip positioning
   background-color: $red;
-  border-radius: 5px;
-  width: $bar-width-desktop;
+  border-radius: 3px;
+  width: $bar-width-mobile;
   transition: background-color $transition-type;
+
+  @include desktop-breakpoint {
+    width: $bar-width-desktop;
+    border-radius: 5px;
+  }
 
   &:hover {
     cursor: pointer;
@@ -86,7 +98,7 @@ $transition-type: 0.2s ease;
     }
   }
 
-  // tooltip construction
+  // tooltip construction; no sytling for mobile
   &::before {
     content: attr(exp-amount);
     color: $cardWhite;
@@ -96,7 +108,7 @@ $transition-type: 0.2s ease;
     padding: 8px;
     // positioning
     position: absolute;
-    top: -2.6rem;
+    top: -42px;
     left: 50%;
     transform: translateX(-50%);
     transition: opacity $transition-type;

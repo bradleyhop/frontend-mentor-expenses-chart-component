@@ -59,61 +59,110 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+// spin animation for logo
+@keyframes spin {
+  from{
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .expense-chart {
-  min-width: 540px;
+  min-width: 343px;
+
+  @include desktop-breakpoint {
+    min-width: 540px;
+  }
 }
 
 .balance-container {
   background-color: $red;
-  border-radius: 20px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
+  margin-bottom: 16px;
+  min-height: 97px;
   justify-content: space-between;
-  margin-bottom: 24px;
-  min-height: 125px;
+
+  @include desktop-breakpoint {
+    border-radius: 20px;
+    margin-bottom: 24px;
+    min-height: 125px;
+  }
 }
 
 .balance-content-container {
-  padding-left: 32px;
+  padding-left: 20px;
+
+  @include desktop-breakpoint {
+    padding-left: 32px;
+  }
 }
 
 .balance-title {
   color: $white;
-  line-height: 23.44px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+
+  @include desktop-breakpoint {
+    margin-bottom: 8px;
+  }
 }
 
 .balance-number {
   color: $white;
-  line-height: 41.66px;
 }
 
 .logo-img-container {
-  padding-right: 39px;
+  padding-right: 24px;
+
+  @include desktop-breakpoint {
+    padding-right: 39px;
+  }
 }
 
 .logo-img {
-  height: 48px;
-  width: 72px;
+  height: 40px;
+  width: 60px;
+
+  @include desktop-breakpoint {
+    height: 48px;
+    width: 72px;
+  }
+
+  &:hover {
+    // an easter egg
+    animation: spin 850ms ease-in-out 1;
+  }
 }
 
 .spending-container {
   background-color: $cardWhite;
-  border-radius: 20px;
-  min-height: 511px;
-  padding: 32px 40px 40px 40px;
+  border-radius: 10px;
+  min-height: 421px;
+  padding: 24px 20px;
+
+  @include desktop-breakpoint {
+    border-radius: 20px;
+    min-height: 511px;
+    padding: 32px 40px 40px 40px;
+  }
 }
 
 .spending-title {
   color: $darkBrown;
   font-weight: 700;
-  line-height: 41.66px;
 }
 
 hr.divider {
   border-top: 2px solid $creamBG;
   border-radius: 1px;
-  margin: 32px 0;
+  margin: 24px 0;
+
+  @include desktop-breakpoint {
+    margin: 32px 0;
+  }
 }
 
 .monthly-container {
@@ -123,13 +172,11 @@ hr.divider {
 
 .monthly-title {
   color: $medBrown;
-  line-height: 23.44px;
 }
 
 .monthly-total-number {
   color: $darkBrown;
   font-weight: 700;
-  line-height: 62.5px;
 }
 
 .percent-month-container {
@@ -139,12 +186,7 @@ hr.divider {
   justify-content: flex-end;
 }
 
-.percent-month-number {
-  line-height: 23.44px;
-}
-
 .percent-month-title {
   color: $medBrown;
-  line-height: 23.44px;
 }
 </style>
