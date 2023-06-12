@@ -1,35 +1,118 @@
-# frontend-mentor-expenses-chart-component
+# Frontend Mentor - Expenses chart component solution
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a solution to the [Expenses chart component challenge on Frontend
+Mentor](https://www.frontendmentor.io/challenges/expenses-chart-component-e7yJBUdjwt).
+Frontend Mentor challenges help you improve your coding skills by building
+realistic projects.
 
-## Recommended IDE Setup
+## Table of contents
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Links](#links)
+  - [Screenshot](#screenshot)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+- [Author](#author)
 
-## Customize configuration
+## Overview
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### The challenge
 
-## Project Setup
+Users should be able to:
 
-```sh
-npm install
+- View the bar chart and hover over the individual bars to see the correct amounts for each day
+- See the current day’s bar highlighted in a different colour to the other bars
+- View the optimal layout for the content depending on their device’s screen size
+- See hover states for all interactive elements on the page
+- **Bonus**: Use the JSON data file provided to dynamically size the bars on the chart [Bonus condition met ;) ]
+
+### Links
+
+- Solution URL: [GitHub Repo](https://github.com/bradleyhop/frontend-mentor-expenses-chart-component)
+- Live Site URL: [Via GitHub Pages](https://your-live-site-url.com)
+
+### Screenshot
+
+![desktop screenshot](./screenshots/desktop.png)
+![mobile screenshot](./screenshots/mobile.png)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- SCSS
+- Mobile-first workflow
+- [Vue.js](https://vuejs.org/) - JS library
+- [Vite](https://vitejs.dev) - Next generation frontend tooling
+
+### What I learned
+
+I did not want to use a library to draw the chart for this project. The design
+and data did not seem complex, so I challenged myself to use only CSS and
+javascript.
+
+I dynamically draw the bars on the chart so that the height reflexes the value.
+At the same time, I needed to check if that value was the max value to apply
+custom CSS to that particular element. I also need to assign a value to a
+custom html attribute for each bar, which draws the tooltip elements on
+hovering a bar. Vue made all this mostly painless:
+
+```html
+    <div
+      v-for="expense in expJSON"
+      :key="expense.id"
+      class="bar-chart-container__bar"
+      :style="{
+        height: `${(expense.amount / maxExpense) * 150}px`
+      }"
+      :class="`${expense.amount === maxExpense ? 'max' : ''}`"
+      :exp-amount="`${'$'.concat(expense.amount)}`"
+    ></div>
 ```
 
-### Compile and Hot-Reload for Development
+The code for the tooltip:
 
-```sh
-npm run dev
+```scss
+.bar-chart-container__bar {
+  //...
+
+  // tooltip construction; no styling for mobile
+  &::before {
+    content: attr(exp-amount);
+    color: $cardWhite;
+    background-color: $darkBrown;
+    border-radius: 5px;
+    opacity: 0;
+    padding: 8px;
+    // positioning
+    position: absolute;
+    top: -42px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity $transition-type;
+  }
+
+  // show tooltip
+  &:hover::before {
+    opacity: 1;
+  }
+}
 ```
 
-### Compile and Minify for Production
+### Continued development
 
-```sh
-npm run build
-```
+I used the exact pixel measurement given in the challenge description for the
+desktop and mobile screens. I want to be better able to capture the spirit of
+the design documents and use CSS features such as `clamp()` to help make
+responsive components.
 
-### Lint with [ESLint](https://eslint.org/)
+## Author
 
-```sh
-npm run lint
-```
+- Website - [Bradley Smith](https://www.bradleysmith.tech)
+- Frontend Mentor -
+    [@bradleyhop](https://www.frontendmentor.io/profile/bradleyhop)
+
