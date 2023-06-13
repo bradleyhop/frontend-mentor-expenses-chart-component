@@ -24,7 +24,7 @@ realistic projects.
 Users should be able to:
 
 - View the bar chart and hover over the individual bars to see the correct amounts for each day
-- See the current day’s bar highlighted in a different colour to the other bars
+- See the current day’s bar highlighted in a different color to the other bars
 - View the optimal layout for the content depending on their device’s screen size
 - See hover states for all interactive elements on the page
 - **Bonus**: Use the JSON data file provided to dynamically size the bars on the chart [Bonus condition met ;) ]
@@ -44,8 +44,7 @@ Users should be able to:
 ### Built with
 
 - Semantic HTML5 markup
-- SCSS
-- Mobile-first workflow
+- [SCSS](https://sass-lang.com/)
 - [Vue.js](https://vuejs.org/) - JS library
 - [Vite](https://vitejs.dev) - Next generation frontend tooling
 
@@ -70,7 +69,7 @@ hovering a bar. Vue made all this mostly painless:
         height: `${(expense.amount / maxExpense) * 150}px`
       }"
       :class="`${expense.amount === maxExpense ? 'max' : ''}`"
-      :exp-amount="`${'$'.concat(expense.amount)}`"
+      :data-exp-amount="`${'$'.concat(expense.amount)}`"
     ></div>
 ```
 
@@ -78,11 +77,11 @@ The code for the tooltip:
 
 ```scss
 .bar-chart-container__bar {
-  //...
+  //[...]
 
   // tooltip construction; no styling for mobile
   &::before {
-    content: attr(exp-amount);
+    content: attr(data-exp-amount);
     color: $cardWhite;
     background-color: $darkBrown;
     border-radius: 5px;
@@ -102,6 +101,10 @@ The code for the tooltip:
   }
 }
 ```
+
+After running the app through `html-validator`, I found a new issue: my custom
+attribute did not have the proper naming scheme. I fixed it by simply prepending
+`data-` to my custom attribute name in the html and css code.
 
 ### Continued development
 

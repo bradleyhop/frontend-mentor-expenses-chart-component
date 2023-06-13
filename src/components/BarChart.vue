@@ -4,9 +4,9 @@ export default {
 
   props: {
     expJSON: {
-      type: Array,
-      default: () => [],
-      required: true
+      type     : Array,
+      default  : () => [],
+      required : true
     }
   },
 
