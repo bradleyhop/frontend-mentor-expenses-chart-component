@@ -13,11 +13,11 @@ export default {
 
   data() {
     return {
-      expJSON: exp_json,
-      // given as static data in project setup files
-      balance: 921.48,
-      monthlyTotalExpense: 478.33,
-      percentChange: '+2.4%'
+      expJSON             : exp_json,
+      // all data below given as in project setup files
+      balance             : 921.48,
+      monthlyTotalExpense : 478.33,
+      percentChange       : '+2.4%'
     }
   }
 }
