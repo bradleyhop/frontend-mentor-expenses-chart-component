@@ -4,9 +4,15 @@ export default {
 
   props: {
     expJSON: {
-      type     : Array,
-      default  : () => [],
-      required : true
+      type: Array,
+      default: () => [],
+      required: true
+    }
+  },
+
+  data () {
+    return {
+      maxBarHeight: 150
     }
   },
 
@@ -29,7 +35,7 @@ export default {
       :key="expense.id"
       class="bar-chart-container__bar"
       :style="{
-        height: `${(expense.amount / maxExpense) * 150}px`
+        height: `${(expense.amount / maxExpense) * maxBarHeight}px`
       }"
       :class="`${expense.amount === maxExpense ? 'max' : ''}`"
       :data-exp-amount="`${'$'.concat(expense.amount)}`"
@@ -85,7 +91,7 @@ $transition-type: 0.2s ease;
 
   &:hover {
     cursor: pointer;
-    background-color: #ff9b86;
+    background-color: $red-hover;
   }
 
   // max expenditure value gets different color
@@ -93,7 +99,7 @@ $transition-type: 0.2s ease;
     background-color: $cyan;
 
     &:hover {
-      background-color: #b4e0e5;
+      background-color: $cyan-hover;
     }
   }
 
