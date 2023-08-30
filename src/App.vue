@@ -19,12 +19,16 @@ export default {
         <a
           href="https://www.frontendmentor.io/challenges/expenses-chart-component-e7yJBUdjwt"
           class="attr-link"
+          target="_blank"
+          rel="noreferrer noopener"
           >Frontend Mentor</a
         ><br />
         Code by
         <a
           href="https://github.com/bradleyhop/frontend-mentor-expenses-chart-component"
           class="attr-link"
+          target="_blank"
+          rel="noreferrer noopener"
           >Bradley Smith</a
         >
       </p>
