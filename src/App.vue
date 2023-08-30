@@ -14,6 +14,20 @@ export default {
   <main>
     <div class="expChartContainer">
       <ExpenseReport />
+      <p class="attribution">
+        Challenge by
+        <a
+          href="https://www.frontendmentor.io/challenges/expenses-chart-component-e7yJBUdjwt"
+          class="attr-link"
+          >Frontend Mentor</a
+        ><br />
+        Code by
+        <a
+          href="https://github.com/bradleyhop/frontend-mentor-expenses-chart-component"
+          class="attr-link"
+          >Bradley Smith</a
+        >
+      </p>
     </div>
   </main>
 
@@ -31,5 +45,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.attribution {
+  color: $darkBrown;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+.attr-link {
+  text-decoration: underline;
 }
 </style>

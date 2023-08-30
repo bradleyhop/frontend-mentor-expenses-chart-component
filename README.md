@@ -52,13 +52,13 @@ Users should be able to:
 
 I did not want to use a library to draw the chart for this project. The design
 and data did not seem complex, so I challenged myself to use only CSS and
-javascript.
+Javascript.
 
 I dynamically draw the bars on the chart so that the height reflexes the value.
 At the same time, I needed to check if that value was the max value to apply
 custom CSS to that particular element. I also need to assign a value to a
-custom html attribute for each bar, which draws the tooltip elements on
-hovering a bar. Vue made all this mostly painless:
+custom HTML Attribute for each bar, which draws the tooltip elements on
+hovering a bar. Vue.js made all this mostly painless:
 
 ```html
     <div
@@ -104,7 +104,7 @@ The code for the tooltip:
 
 After running the app through `html-validator`, I found a new issue: my custom
 attribute did not have the proper naming scheme. I fixed it by simply prepending
-`data-` to my custom attribute name in the html and css code.
+`data-` to my custom attribute name in the HTML and CSS code.
 
 ### Continued development
 
